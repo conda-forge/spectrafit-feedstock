@@ -1,5 +1,5 @@
 {% set name = "spectrafit" %}
-{% set version = "0.10.3" %}
+{% set version = "0.10.4" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/SpectraFit-{{ version }}.tar.gz
-  sha256: a2ba8aa518353f1b1ca5e8447ca5417b86cc3ff489860cf31adb069fa8eee2e2
+  sha256: 3345f06de575738953b2bf100843210bdd855dac9c02538fa9721e62cc5421fd
 
 build:
   noarch: python
@@ -46,6 +46,9 @@ test:
 about:
   home: https://pypi.org/project/spectrafit/
   summary: Fast fitting of 2D-Spectra with established routines
+  description: >-
+    SpectraFit is a command-line tool for quick data-fitting
+    based on the regular expression of distribution functions.
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
