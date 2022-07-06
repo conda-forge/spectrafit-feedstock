@@ -13,6 +13,8 @@ Development: https://github.com/anselmoo/spectrafit
 
 Documentation: https://anselmoo.github.io/spectrafit/
 
+SpectraFit is a command-line tool for quick data-fitting based on the regular expression of distribution functions.
+
 Current build status
 ====================
 
