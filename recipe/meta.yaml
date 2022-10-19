@@ -11,7 +11,7 @@ source:
 
 build:
   skip: true  # [py>=311]
-  number: 0
+  number: 1
 
 outputs:
   - name: {{ name }}
@@ -88,8 +88,9 @@ outputs:
 about:
   home: https://pypi.org/project/spectrafit/
   summary: Fast fitting of 2D-Spectra with established routines
-  description: >-
-    SpectraFit is a command-line and Jupyter-notebook tool for quick data-fitting based on the regular expression of distribution functions.
+  description: |
+    SpectraFit is a command-line and Jupyter-notebook tool for quick data-fitting
+    based on the regular expression of distribution functions.
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
@@ -99,4 +100,3 @@ about:
 extra:
   recipe-maintainers:
     - Anselmoo
-  feedstock-name: spectrafit
