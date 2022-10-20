@@ -2,7 +2,7 @@
 {% set version = "0.12.1" %}
 
 package:
-  name: {{ name|lower }}
+  name: {{ name|lower }}-recipe
   version: {{ version }}
 
 source:
@@ -16,14 +16,14 @@ build:
 outputs:
   - name: {{ name }}
     build:
-      script: python -m pip install . --no-deps --ignore-installed -vv
+      script: poetry install --no-interaction
       entry_points:
-      - spectrafit = spectrafit.spectrafit:command_line_runner
-      - spectrafit-converter = spectrafit.plugins.converter:command_line_runner
+        - spectrafit = spectrafit.spectrafit:command_line_runner
+        - spectrafit-converter = spectrafit.plugins.converter:command_line_runner
     requirements:
       host:
         - python >=3.7, <3.11
-        - poetry >=1.1,<1.2
+        - poetry ==1.1.15
         - pip
       run:
         - python
@@ -46,8 +46,6 @@ outputs:
         - numpy >=1.23.4,<2.0.0  # [py>=38]
         - pydantic >=1.10.1,<2.0.0
     test:
-      imports:
-        - spectrafit
       commands:
         - pip check
         - spectrafit --help
@@ -56,27 +54,44 @@ outputs:
         - pip
   - name: {{ name }}-jupyter
     build:
-      skip: true
+      script: poetry install --no-interaction --extras jupyter
       entry_points:
-      - spectrafit = spectrafit.spectrafit:command_line_runner
-      - spectrafit-converter = spectrafit.plugins.converter:command_line_runner
-      - spectrafit-jupyter = spectrafit.app.app:jupyter
+        - spectrafit = spectrafit.spectrafit:command_line_runner
+        - spectrafit-converter = spectrafit.plugins.converter:command_line_runner
+        - spectrafit-jupyter = spectrafit.app.app:jupyter
     requirements:
       host:
         - python >=3.7, <3.11
-        - poetry >=1.1,<1.2
+        - poetry ==1.1.15
         - pip
       run:
         - python
-        - {{ pin_subpackage('spectrafit', exact=True) }}
+        - pyyaml >=6.0,<7.0
+        - ascii-art >=5.7,<6.0
+        - emcee >=3.1.2,<4.0.0
+        - lmfit >=1.0.3,<2.0.0
+        - numdifftools >=0.9.39,<0.10.0
+        - openpyxl >=3.0.9,<4.0.0
+        - pydantic >=1.10.1,<2.0.0
+        - scikit-learn >=1.0.2,<2.0.0
+        - seaborn >=0.11.2,<0.12.0
+        - tabulate >=0.8.10,<0.10.0
+        - tomli-w >=1.0.0,<2.0.0
+        - tomli >=2.0.1,<3.0.0
+        - tqdm >=4.64.0,<5.0.0
+        - pandas ==1.3.5  # [py<38]
+        - pandas >=1.5.0,<2.0.0  # [py>=38]
+        - numpy ==1.21.6  # [py<38]
+        - numpy >=1.23.4,<2.0.0  # [py>=38]
+        - pydantic >=1.10.1,<2.0.0
         - jupyterlab >=3.4.5,<4.0.0
         - plotly >=5.10.0,<6.0.0
         - python-kaleido ==0.2.1
         - itables >=1.3.0,<2.0.0
         - dtale >=2.8.1,<3.0.0
+        - flask >=2.0.2,<3.0.0
+        - dash-table >=4,<6
     test:
-      imports:
-        - spectrafit
       commands:
         - pip check
         - spectrafit --help
