@@ -10,86 +10,54 @@ source:
   sha256: 2767a78324eb2e39ff1089b7e2ee37a50ae368ab0fc4a38fc9bf12594db1036c
 
 build:
+  noarch: python
+  script: {{ PYTHON }} -m pip install . -vv
   skip: true  # [py>=311 or py<37]
-  number: 1
-
-outputs:
-  - name: {{ name }}
-    # script: build_base.sh
-    build:
-      script: python -m pip install . --no-deps --ignore-installed -vv
-      entry_points:
+  number: 2
+  entry_points:
         - spectrafit = spectrafit.spectrafit:command_line_runner
         - spectrafit-converter = spectrafit.plugins.converter:command_line_runner
         - spectrafit-jupyter = spectrafit.app.app:jupyter
-    requirements:
-      host:
-        - python
-        - poetry >=1.1,<1.2
-        - pip
-      run:
-        - python
-        - pyyaml >=6.0,<7.0
-        - ascii-art >=5.7,<6.0
-        - emcee >=3.1.2,<4.0.0
-        - lmfit >=1.0.3,<2.0.0
-        - numdifftools >=0.9.39,<0.10.0
-        - openpyxl >=3.0.9,<4.0.0
-        - pydantic >=1.10.1,<2.0.0
-        - scikit-learn >=1.0.2,<2.0.0
-        - seaborn >=0.11.2,<0.12.0
-        - tabulate >=0.8.10,<0.10.0
-        - tomli-w >=1.0.0,<2.0.0
-        - tomli >=2.0.1,<3.0.0
-        - tqdm >=4.64.0,<5.0.0
-        - pandas ==1.3.5  # [py<38]
-        - pandas >=1.5.0,<2.0.0  # [py>=38]
-        - numpy ==1.21.6  # [py<38]
-        - numpy >=1.23.4,<2.0.0  # [py>=38]
-        - pydantic >=1.10.1,<2.0.0
-        - jupyterlab >=3.4.5,<4.0.0
-        - python-kaleido ==0.2.1
-        - itables >=1.3.0,<2.0.0
-        - plotly >=5.10.0,<6.0.0
-        - dtale >=2.8.1,<3.0.0
-    test:
-      imports:
-        - spectrafit
-      commands:
-        # - pip check
-        - spectrafit --help
-        - spectrafit-converter --help
-        - spectrafit-jupyter --help
-        - python -c "from spectrafit.plugins.notebook import SpectraFitNotebook"
-      #requires:
-      #  - pip
-  #- name: {{ name }}-jupyter
-  #  build:
-  #    noarch: python
-  #    # script: python -m pip install . --no-deps -vv
-  #    skip: true  # [not linux64]
-  #    entry_points:
-  #      - spectrafit = spectrafit.spectrafit:command_line_runner
-  #      - spectrafit-converter = spectrafit.plugins.converter:command_line_runner
-  #      - spectrafit-jupyter = spectrafit.app.app:jupyter
-  #  requirements:
-  #    host:
-  #      - python
-  #      - poetry >=1.1,<1.2
-  #      - pip
-  #    run:
-  #      - python
-  #      - {{ pin_subpackage('spectrafit',  max_pin='x.x.x') }}
-  #      - jupyterlab >=3.4.5,<4.0.0
-  #      - python-kaleido ==0.2.1
-  #      - itables >=1.3.0,<2.0.0
-  #      - plotly >=5.10.0,<6.0.0
-  #      - dtale >=2.8.1,<3.0.0
-  #  test:
-  #    commands:
-  #      - spectrafit --help
-  #      - spectrafit-jupyter --help
-  #      - python -c "from spectrafit.plugins.notebook import SpectraFitNotebook"
+
+
+requirements:
+  host:
+    - pip
+    - python
+    - poetry >=1.1,<1.2
+  run:
+    - python
+    - pyyaml >=6.0,<7.0
+    - ascii-art >=5.7,<6.0
+    - emcee >=3.1.2,<4.0.0
+    - lmfit >=1.0.3,<2.0.0
+    - numdifftools >=0.9.39,<0.10.0
+    - openpyxl >=3.0.9,<4.0.0
+    - pydantic >=1.10.1,<2.0.0
+    - scikit-learn >=1.0.2,<2.0.0
+    - seaborn >=0.11.2,<0.12.0
+    - tabulate >=0.8.10,<0.10.0
+    - tomli-w >=1.0.0,<2.0.0
+    - tomli >=2.0.1,<3.0.0
+    - tqdm >=4.64.0,<5.0.0
+    - pandas ==1.3.5  # [py<38]
+    - pandas >=1.5.0,<2.0.0  # [py>=38]
+    - numpy ==1.21.6  # [py<38]
+    - numpy >=1.23.4,<2.0.0  # [py>=38]
+    - pydantic >=1.10.1,<2.0.0
+    - jupyterlab >=3.4.5,<4.0.0
+    - python-kaleido ==0.2.1
+    - itables >=1.3.0,<2.0.0
+    - plotly >=5.10.0,<6.0.0
+    - dtale >=2.8.1,<3.0.0
+test:
+  imports:
+    - spectrafit
+  commands:
+    - spectrafit --help
+    - spectrafit-converter --help
+    - spectrafit-jupyter --help
+    - python -c "from spectrafit.plugins.notebook import SpectraFitNotebook"
 
 about:
   home: https://pypi.org/project/spectrafit/
@@ -107,4 +75,3 @@ about:
 extra:
   recipe-maintainers:
     - Anselmoo
-  #feedstock-name: spectrafit
