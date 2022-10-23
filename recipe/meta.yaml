@@ -1,5 +1,5 @@
 {% set name = "spectrafit" %}
-{% set version = "0.12.1" %}
+{% set version = "0.12.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,15 +7,15 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/spectrafit-{{ version }}.tar.gz
-  sha256: 2767a78324eb2e39ff1089b7e2ee37a50ae368ab0fc4a38fc9bf12594db1036c
+  sha256: ed749a34311c67af46ee7b5d812d4a1e94abfcfc98f18b187e80e15b4fcf69cb
 
 build:
   noarch: python
-  number: 2
+  number: 0
   entry_points:
-        - spectrafit = spectrafit.spectrafit:command_line_runner
-        - spectrafit-converter = spectrafit.plugins.converter:command_line_runner
-        - spectrafit-jupyter = spectrafit.app.app:jupyter
+    - spectrafit = spectrafit.spectrafit:command_line_runner
+    - spectrafit-converter = spectrafit.plugins.converter:command_line_runner
+    - spectrafit-jupyter = spectrafit.app.app:jupyter
 
 
 requirements:
