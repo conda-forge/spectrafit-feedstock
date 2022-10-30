@@ -1,5 +1,5 @@
 {% set name = "spectrafit" %}
-{% set version = "0.12.2" %}
+{% set version = "0.12.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/spectrafit-{{ version }}.tar.gz
-  sha256: ed749a34311c67af46ee7b5d812d4a1e94abfcfc98f18b187e80e15b4fcf69cb
+  sha256: 14cf328061bf7d19632159e2013311a5558b6b06a4512ea9ba0036819acc1d38
 
 build:
   noarch: python
@@ -17,12 +17,10 @@ build:
     - spectrafit-converter = spectrafit.plugins.converter:command_line_runner
     - spectrafit-jupyter = spectrafit.app.app:jupyter
 
-
 requirements:
   host:
     - pip
     - python >=3.7,<3.11
-    # - poetry >=1.1,<1.2
   run:
     - python >=3.7,<3.11
     - pyyaml >=6.0,<7.0
@@ -46,6 +44,7 @@ requirements:
     - itables >=1.3.0,<2.0.0
     - plotly >=5.10.0,<6.0.0
     - dtale >=2.8.1,<3.0.0
+
 test:
   imports:
     - spectrafit
