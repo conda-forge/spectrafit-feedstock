@@ -2,7 +2,7 @@
 {% set version = "0.12.3" %}
 
 package:
-  name: {{ name|lower }}
+  name: {{ name|lower }}-recipe
   version: {{ version }}
 
 source:
@@ -10,49 +10,87 @@ source:
   sha256: 14cf328061bf7d19632159e2013311a5558b6b06a4512ea9ba0036819acc1d38
 
 build:
-  noarch: python
-  number: 0
-  entry_points:
-    - spectrafit = spectrafit.spectrafit:command_line_runner
-    - spectrafit-converter = spectrafit.plugins.converter:command_line_runner
-    - spectrafit-jupyter = spectrafit.app.app:jupyter
+  number: 1
 
-requirements:
-  host:
-    - pip
-    - python >=3.7,<3.11
-  run:
-    - python >=3.7,<3.11
-    - pyyaml >=6.0,<7.0
-    - ascii-art >=5.7,<6.0
-    - emcee >=3.1.2,<4.0.0
-    - lmfit >=1.0.3,<2.0.0
-    - numdifftools >=0.9.39,<0.10.0
-    - openpyxl >=3.0.9,<4.0.0
-    - pydantic >=1.10.1,<2.0.0
-    - scikit-learn >=1.0.2,<2.0.0
-    - seaborn >=0.11.2,<0.12.0
-    - tabulate >=0.8.10,<0.10.0
-    - tomli-w >=1.0.0,<2.0.0
-    - tomli >=2.0.1,<3.0.0
-    - tqdm >=4.64.0,<5.0.0
-    - pandas >=1.3.5,<2.0.0
-    - numpy >=1.21.6,<2.0.0
-    - pydantic >=1.10.1,<2.0.0
-    - jupyterlab >=3.4.5,<4.0.0
-    - python-kaleido ==0.2.1
-    - itables >=1.3.0,<2.0.0
-    - plotly >=5.10.0,<6.0.0
-    - dtale >=2.8.1,<3.0.0
-
-test:
-  imports:
-    - spectrafit
-  commands:
-    - spectrafit --help
-    - spectrafit-converter --help
-    - spectrafit-jupyter --help
-    - python -c "from spectrafit.plugins.notebook import SpectraFitNotebook"
+outputs:
+  - name: {{ name|lower }}
+    script: build_base.sh
+    build:
+      skip: true  # [py<37]
+      entry_points:
+        - spectrafit = spectrafit.spectrafit:command_line_runner
+        - spectrafit-converter = spectrafit.plugins.converter:command_line_runner
+    requirements:
+      build:
+        - python                                 # [build_platform != target_platform]
+        - cross-python_{{ target_platform }}     # [build_platform != target_platform]
+      host:
+        - python
+        - pip
+      run:
+        - python
+        - pyyaml >=6.0,<7.0
+        - ascii-art >=5.7,<6.0
+        - emcee >=3.1.2,<4.0.0
+        - lmfit >=1.0.3,<2.0.0
+        - numdifftools >=0.9.39,<0.10.0
+        - openpyxl >=3.0.9,<4.0.0
+        - pydantic >=1.10.1,<2.0.0
+        - scikit-learn >=1.0.2,<2.0.0
+        - seaborn >=0.11.2,<0.12.0
+        - tabulate >=0.8.10,<0.10.0
+        - tomli-w >=1.0.0,<2.0.0
+        - tomli >=2.0.1,<3.0.0
+        - tqdm >=4.64.0,<5.0.0
+        - pandas >=1.3.5,<2.0.0
+        - numpy >=1.21.6,<2.0.0
+        - pydantic >=1.10.1,<2.0.0
+    test:
+      imports:
+        - spectrafit
+      commands:
+        - spectrafit --help
+        - spectrafit-converter --help
+  - name: {{ name|lower }}-jupyter
+    build:
+      noarch: python
+      # Skip this package for cross-builds. We will only need a single upload anyways
+      skip: true  # [not linux64]
+      entry_points:
+        - spectrafit-jupyter = spectrafit.app.app:jupyter
+    requirements:
+      run:
+        - {{ pin_subpackage('spectrafit', max_pin='x.x.x') }}
+        - jupyterlab >=3.4.5,<4.0.0
+        - python-kaleido ==0.2.1
+        - itables >=1.3.0,<2.0.0
+        - plotly >=5.10.0,<6.0.0
+        - dtale >=2.8.1,<3.0.0
+    test:
+      imports:
+        - spectrafit
+      commands:
+        - spectrafit-jupyter --help
+        - python -c "from spectrafit.plugins.notebook import SpectraFitNotebook"
+  - name: {{ name|lower }}-all
+    build:
+      noarch: python
+      # Skip this package for cross-builds. We will only need a single upload anyways
+      skip: true  # [not linux64]
+      entry_points:
+        - spectrafit-jupyter = spectrafit.app.app:jupyter
+    requirements:
+      run:
+        - {{ pin_subpackage('spectrafit', max_pin='x.x.x') }}
+        - {{ pin_subpackage('spectrafit-jupyter', max_pin='x.x.x') }}
+    test:
+      imports:
+        - spectrafit
+      commands:
+        - spectrafit --help
+        - spectrafit-converter --help
+        - spectrafit-jupyter --help
+        - python -c "from spectrafit.plugins.notebook import SpectraFitNotebook"
 
 about:
   home: https://pypi.org/project/spectrafit/
