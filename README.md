@@ -36,24 +36,66 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux_64</td>
+              <td>linux_64_python3.10.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=16585&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/spectrafit-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/spectrafit-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_python3.10.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_64</td>
+              <td>linux_64_python3.8.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=16585&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/spectrafit-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/spectrafit-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_python3.8.____cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>win_64</td>
+              <td>linux_64_python3.9.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=16585&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/spectrafit-feedstock?branchName=main&jobName=win&configuration=win%20win_64_" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/spectrafit-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_python3.9.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64_python3.10.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=16585&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/spectrafit-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_python3.10.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64_python3.8.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=16585&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/spectrafit-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_python3.8.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64_python3.9.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=16585&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/spectrafit-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_python3.9.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>win_64_python3.10.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=16585&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/spectrafit-feedstock?branchName=main&jobName=win&configuration=win%20win_64_python3.10.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>win_64_python3.8.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=16585&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/spectrafit-feedstock?branchName=main&jobName=win&configuration=win%20win_64_python3.8.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>win_64_python3.9.____cpython</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=16585&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/spectrafit-feedstock?branchName=main&jobName=win&configuration=win%20win_64_python3.9.____cpython" alt="variant">
                 </a>
               </td>
             </tr>
@@ -70,6 +112,7 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-spectrafit-green.svg)](https://anaconda.org/conda-forge/spectrafit) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/spectrafit.svg)](https://anaconda.org/conda-forge/spectrafit) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/spectrafit.svg)](https://anaconda.org/conda-forge/spectrafit) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/spectrafit.svg)](https://anaconda.org/conda-forge/spectrafit) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-spectrafit--all-green.svg)](https://anaconda.org/conda-forge/spectrafit-all) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/spectrafit-all.svg)](https://anaconda.org/conda-forge/spectrafit-all) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/spectrafit-all.svg)](https://anaconda.org/conda-forge/spectrafit-all) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/spectrafit-all.svg)](https://anaconda.org/conda-forge/spectrafit-all) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-spectrafit--jupyter-green.svg)](https://anaconda.org/conda-forge/spectrafit-jupyter) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/spectrafit-jupyter.svg)](https://anaconda.org/conda-forge/spectrafit-jupyter) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/spectrafit-jupyter.svg)](https://anaconda.org/conda-forge/spectrafit-jupyter) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/spectrafit-jupyter.svg)](https://anaconda.org/conda-forge/spectrafit-jupyter) |
 
 Installing spectrafit-recipe
@@ -82,16 +125,16 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `spectrafit, spectrafit-jupyter` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `spectrafit, spectrafit-all, spectrafit-jupyter` can be installed with `conda`:
 
 ```
-conda install spectrafit spectrafit-jupyter
+conda install spectrafit spectrafit-all spectrafit-jupyter
 ```
 
 or with `mamba`:
 
 ```
-mamba install spectrafit spectrafit-jupyter
+mamba install spectrafit spectrafit-all spectrafit-jupyter
 ```
 
 It is possible to list all of the versions of `spectrafit` available on your platform with `conda`:
