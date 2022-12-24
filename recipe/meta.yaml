@@ -19,7 +19,8 @@ outputs:
       skip: true  # [py<37]
       entry_points:
         - spectrafit = spectrafit.spectrafit:command_line_runner
-        - spectrafit-converter = spectrafit.plugins.converter:command_line_runner
+        - spectrafit-file-converter = spectrafit.plugins.file_converter:command_line_runner
+        - spectrafit-data-converter = spectrafit.plugins.data_converter:command_line_runner
     requirements:
       build:
         - python                                 # [build_platform != target_platform]
@@ -50,7 +51,8 @@ outputs:
         - spectrafit
       commands:
         - spectrafit --help
-        - spectrafit-converter --help
+        - spectrafit-file-converter --help
+        - spectrafit-data-converter --help
   - name: {{ name|lower }}-jupyter
     build:
       noarch: python
@@ -89,7 +91,8 @@ outputs:
         - spectrafit
       commands:
         - spectrafit --help
-        - spectrafit-converter --help
+        - spectrafit-file-converter --help
+        - spectrafit-data-converter --help
         - spectrafit-jupyter --help
         - python -c "from spectrafit.plugins.notebook import SpectraFitNotebook"
 
