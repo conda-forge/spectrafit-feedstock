@@ -14,7 +14,7 @@ build:
 
 outputs:
   - name: {{ name|lower }}
-    script: build_base.sh
+    script: ${PYTHON} -m pip install . -vv --no-deps
     build:
       skip: true  # [py<38]
       entry_points:
