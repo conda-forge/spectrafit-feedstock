@@ -104,7 +104,7 @@ outputs:
         - spectrafit --help
         - spectrafit-pkl-visualizer --help
         - spectrafit-pkl-converter --help
-  - name: {{ networkx }}-rixs
+  - name: {{ name|lower }}-rixs
     build:
       noarch: python
       # Skip this package for cross-builds. We will only need a single upload anyways
