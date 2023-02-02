@@ -58,7 +58,6 @@ outputs:
   - name: {{ name|lower }}-jupyter
     build:
       noarch: python
-      # Skip this package for cross-builds. We will only need a single upload anyways
       skip: true  # [not linux64]
       entry_points:
         - spectrafit-jupyter = spectrafit.app.app:jupyter
@@ -84,7 +83,6 @@ outputs:
   - name: {{ name|lower }}-graph
     build:
       noarch: python
-      # Skip this package for cross-builds. We will only need a single upload anyways
       skip: true  # [not linux64]
       entry_points:
         - spectrafit-pkl-visualizer = spectrafit.plugins.pkl_visualizer:command_line_runner
@@ -105,41 +103,40 @@ outputs:
         - spectrafit --help
         - spectrafit-pkl-visualizer --help
         - spectrafit-pkl-converter --help
-  - name: {{ name|lower }}-rixs
+  # - name: {{ name|lower }}-rixs
+  #   build:
+  #     noarch: python
+  #     # Skip this package for cross-builds. We will only need a single upload anyways
+  #     skip: true  # [not linux64]
+  #     entry_points:
+  #       - spectrafit-rixs-visualizer = spectrafit.plugins.rixs_visualizer:command_line_runner
+  #       - spectrafit-rixs-converter = spectrafit.plugins.rixs_converter:command_line_runner
+  #     host:
+  #       - python
+  #       - pip
+  #       - build
+  #   requirements:
+  #     run:
+  #       - {{ pin_subpackage('spectrafit', max_pin='x.x.x') }}
+  #       - {{ pin_subpackage('spectrafit-graph', max_pin='x.x.x') }}
+  #       - {{ pin_subpackage('spectrafit-jupyter', max_pin='x.x.x') }}
+  #       - jupyter-dash >=0.4.0,<1.0.0
+  #       - ipywidgets >8.0.0,<9.0.0
+  #       - dash-bootstrap-components >=1.0.0,<2.0.0
+  #       # - dash-bootstrap-templates >=1.0.0,<2.0.0
+  #   test:
+  #     imports:
+  #       - spectrafit
+  #     commands:
+  #       - spectrafit-rixs-visualizer --help
+  #       - spectrafit-rixs-converter --help
+  #     host:
+  #       - python
+  #       - pip
+  #       - build
+  # - name: {{ name|lower }}-all
     build:
       noarch: python
-      # Skip this package for cross-builds. We will only need a single upload anyways
-      skip: true  # [not linux64]
-      entry_points:
-        - spectrafit-rixs-visualizer = spectrafit.plugins.rixs_visualizer:command_line_runner
-        - spectrafit-rixs-converter = spectrafit.plugins.rixs_converter:command_line_runner
-      host:
-        - python
-        - pip
-        - build
-    requirements:
-      run:
-        - {{ pin_subpackage('spectrafit', max_pin='x.x.x') }}
-        - {{ pin_subpackage('spectrafit-graph', max_pin='x.x.x') }}
-        - {{ pin_subpackage('spectrafit-jupyter', max_pin='x.x.x') }}
-        - jupyter-dash >=0.4.0,<1.0.0
-        - ipywidgets >8.0.0,<9.0.0
-        - dash-bootstrap-components >=1.0.0,<2.0.0
-        # - dash-bootstrap-templates >=1.0.0,<2.0.0
-    test:
-      imports:
-        - spectrafit
-      commands:
-        - spectrafit-rixs-visualizer --help
-        - spectrafit-rixs-converter --help
-      host:
-        - python
-        - pip
-        - build
-  - name: {{ name|lower }}-all
-    build:
-      noarch: python
-      # Skip this package for cross-builds. We will only need a single upload anyways
       skip: true  # [not linux64]
       entry_points:
         - spectrafit-jupyter = spectrafit.app.app:jupyter
