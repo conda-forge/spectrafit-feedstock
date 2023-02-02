@@ -10,7 +10,7 @@ source:
   sha256: dbc1716bf69b850dbafbc6175e0363298498ea88f9ad3bbd3cf456d5d134ec4f
 
 build:
-  number: 0
+  number: 1
 
 outputs:
   - name: {{ name|lower }}
@@ -134,7 +134,7 @@ outputs:
   #       - python
   #       - pip
   #       - build
-  # - name: {{ name|lower }}-all
+  - name: {{ name|lower }}-all
     build:
       noarch: python
       skip: true  # [not linux64]
@@ -155,6 +155,8 @@ outputs:
         - spectrafit --help
         - spectrafit-file-converter --help
         - spectrafit-data-converter --help
+        - spectrafit-pkl-visualizer --help
+        - spectrafit-pkl-converter --help
         - spectrafit-jupyter --help
         - python -c "from spectrafit.plugins.notebook import SpectraFitNotebook"
 
