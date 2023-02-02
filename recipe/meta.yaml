@@ -155,8 +155,8 @@ outputs:
         - spectrafit --help
         - spectrafit-file-converter --help
         - spectrafit-data-converter --help
-        - spectrafit-pkl-visualizer = spectrafit.plugins.pkl_visualizer:command_line_runner
-        - spectrafit-pkl-converter = spectrafit.plugins.pkl_converter:command_line_runner
+        - spectrafit-pkl-visualizer --help
+        - spectrafit-pkl-converter --help
         - spectrafit-jupyter --help
         - python -c "from spectrafit.plugins.notebook import SpectraFitNotebook"
 
