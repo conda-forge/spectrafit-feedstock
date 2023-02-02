@@ -14,7 +14,7 @@ build:
 
 outputs:
   - name: {{ name|lower }}
-    # script: ${PYTHON} -m pip install . -vv
+    # script: build_base.sh
     build:
       noarch: python
       skip: true  # [py<38]
@@ -145,7 +145,7 @@ outputs:
         - {{ pin_subpackage('spectrafit', max_pin='x.x.x') }}
         - {{ pin_subpackage('spectrafit-jupyter', max_pin='x.x.x') }}
         - {{ pin_subpackage('spectrafit-graph', max_pin='x.x.x') }}
-        - {{ pin_subpackage('spectrafit-rixs', max_pin='x.x.x') }}
+        # - {{ pin_subpackage('spectrafit-rixs', max_pin='x.x.x') }}
     test:
       imports:
         - spectrafit
