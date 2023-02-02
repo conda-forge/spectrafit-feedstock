@@ -10,22 +10,19 @@ source:
   sha256: dbc1716bf69b850dbafbc6175e0363298498ea88f9ad3bbd3cf456d5d134ec4f
 
 build:
-  number: 1
+  number: 2
 
 outputs:
   - name: {{ name|lower }}
     script: build_base.sh
     build:
-      # noarch: python
+      noarch: python
       skip: true  # [py<38]
       entry_points:
         - spectrafit = spectrafit.spectrafit:command_line_runner
         - spectrafit-file-converter = spectrafit.plugins.file_converter:command_line_runner
         - spectrafit-data-converter = spectrafit.plugins.data_converter:command_line_runner
     requirements:
-      build:
-       - python                                 # [build_platform != target_platform]
-       - cross-python_{{ target_platform }}     # [build_platform != target_platform]
       host:
         - python
         - pip
