@@ -14,7 +14,7 @@ build:
 
 outputs:
   - name: {{ name|lower }}
-    script: ${PYTHON} -m pip install . -vv
+    # script: ${PYTHON} -m pip install . -vv
     build:
       noarch: python
       skip: true  # [py<38]
