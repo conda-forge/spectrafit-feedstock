@@ -10,7 +10,7 @@ source:
   sha256: dbc1716bf69b850dbafbc6175e0363298498ea88f9ad3bbd3cf456d5d134ec4f
 
 build:
-  number: 2
+  number: 3
 
 outputs:
   - name: {{ name|lower }}
@@ -24,27 +24,27 @@ outputs:
         - spectrafit-data-converter = spectrafit.plugins.data_converter:command_line_runner
     requirements:
       host:
-        - python
+        - python >=3.8
         - pip
         - poetry
       run:
-        - python
-        - pyyaml >=6.0,<7.0
-        - ascii-art >=5.7,<6.0
-        - emcee >=3.1.2,<4.0.0
-        - lmfit >=1.0.3,<2.0.0
-        - numdifftools >=0.9.39,<0.10.0
-        - numpy >=1.21.6,<2.0.0
-        - openpyxl >=3.0.9,<4.0.0
-        - pandas >=1.3.5,<2.0.0
-        - pydantic >=1.10.1,<2.0.0
-        - scikit-learn >=1.0.2,<2.0.0
-        - seaborn >=0.11.2,<0.12.0
-        - tabulate >=0.8.10,<0.10.0
-        - tomli >=2.0.1,<3.0.0
-        - pydantic >=1.10.1,<2.0.0
-        - tomli-w >=1.0.0,<2.0.0
-        - tqdm >=4.64.0,<5.0.0
+        - python >=3.8
+        - pyyaml
+        - ascii-art
+        - emcee
+        - lmfit
+        - numdifftools
+        - numpy
+        - openpyxl
+        - pandas
+        - pydantic
+        - scikit-learn
+        - seaborn
+        - tabulate
+        - tomli
+        - pydantic
+        - tomli-w
+        - tqdm
     test:
       imports:
         - spectrafit
@@ -59,18 +59,18 @@ outputs:
       entry_points:
         - spectrafit-jupyter = spectrafit.app.app:jupyter
       host:
-        - python
+        - python >=3.8
         - pip
         - poetry
     requirements:
       run:
         - {{ pin_subpackage('spectrafit', max_pin='x.x.x') }}
-        - jupyterlab >=3.4.5,<4.0.0
+        - jupyterlab
         - python-kaleido ==0.2.1.post1  # [not linux64]
         - python-kaleido ==0.2.1  # [linux64]
-        - itables >=1.3.0,<2.0.0
-        - plotly >=5.10.0,<6.0.0
-        - dtale >=2.8.1,<3.0.0
+        - itables
+        - plotly
+        - dtale
     test:
       imports:
         - spectrafit
@@ -85,14 +85,14 @@ outputs:
         - spectrafit-pkl-visualizer = spectrafit.plugins.pkl_visualizer:command_line_runner
         - spectrafit-pkl-converter = spectrafit.plugins.pkl_converter:command_line_runner
       host:
-        - python
+        - python >=3.8
         - pip
         - poetry
     requirements:
       run:
         - {{ pin_subpackage('spectrafit', max_pin='x.x.x') }}
-        - networkx >=3.0.0,<4.0.0
-        - pydot >=1.4.2,<2.0.0
+        - networkx
+        - pydot
     test:
       imports:
         - spectrafit
@@ -100,33 +100,32 @@ outputs:
         - spectrafit --help
         - spectrafit-pkl-visualizer --help
         - spectrafit-pkl-converter --help
-  # - name: {{ name|lower }}-rixs
-  #   build:
-  #     noarch: python
-  #     # Skip this package for cross-builds. We will only need a single upload anyways
-  #     skip: true  # [not linux64]
-  #     entry_points:
-  #       - spectrafit-rixs-visualizer = spectrafit.plugins.rixs_visualizer:command_line_runner
-  #       - spectrafit-rixs-converter = spectrafit.plugins.rixs_converter:command_line_runner
-  #     host:
-  #       - python
-  #       - pip
-  #       - poetry
-  #   requirements:
-  #     run:
-  #       - {{ pin_subpackage('spectrafit', max_pin='x.x.x') }}
-  #       - {{ pin_subpackage('spectrafit-graph', max_pin='x.x.x') }}
-  #       - {{ pin_subpackage('spectrafit-jupyter', max_pin='x.x.x') }}
-  #       - jupyter-dash >=0.4.0,<1.0.0
-  #       - ipywidgets >8.0.0,<9.0.0
-  #       - dash-bootstrap-components >=1.0.0,<2.0.0
-  #       # - dash-bootstrap-templates >=1.0.0,<2.0.0
-  #   test:
-  #     imports:
-  #       - spectrafit
-  #     commands:
-  #       - spectrafit-rixs-visualizer --help
-  #       - spectrafit-rixs-converter --help
+  - name: {{ name|lower }}-rixs
+    build:
+      noarch: python
+      skip: true  # [not linux64]
+      entry_points:
+        - spectrafit-rixs-visualizer = spectrafit.plugins.rixs_visualizer:command_line_runner
+        - spectrafit-rixs-converter = spectrafit.plugins.rixs_converter:command_line_runner
+      host:
+        - python >=3.8
+        - pip
+        - poetry
+    requirements:
+      run:
+        - {{ pin_subpackage('spectrafit', max_pin='x.x.x') }}
+        - {{ pin_subpackage('spectrafit-graph', max_pin='x.x.x') }}
+        - {{ pin_subpackage('spectrafit-jupyter', max_pin='x.x.x') }}
+        - jupyter-dash
+        - ipywidgets
+        - dash-bootstrap-components
+        - dash-bootstrap-templates
+    test:
+      imports:
+        - spectrafit
+      commands:
+        - spectrafit-rixs-visualizer --help
+        - spectrafit-rixs-converter --help
   #     host:
   #       - python
   #       - pip
@@ -136,7 +135,7 @@ outputs:
       noarch: python
       skip: true  # [not linux64]
       host:
-        - python
+        - python >=3.8
         - pip
         - poetry
     requirements:
@@ -144,7 +143,7 @@ outputs:
         - {{ pin_subpackage('spectrafit', max_pin='x.x.x') }}
         - {{ pin_subpackage('spectrafit-jupyter', max_pin='x.x.x') }}
         - {{ pin_subpackage('spectrafit-graph', max_pin='x.x.x') }}
-        # - {{ pin_subpackage('spectrafit-rixs', max_pin='x.x.x') }}
+        - {{ pin_subpackage('spectrafit-rixs', max_pin='x.x.x') }}
     test:
       imports:
         - spectrafit
@@ -154,6 +153,8 @@ outputs:
         - spectrafit-data-converter --help
         - spectrafit-pkl-visualizer --help
         - spectrafit-pkl-converter --help
+        - spectrafit-rixs-visualizer --help
+        - spectrafit-rixs-converter --help
         - spectrafit-jupyter --help
         - python -c "from spectrafit.plugins.notebook import SpectraFitNotebook"
 
