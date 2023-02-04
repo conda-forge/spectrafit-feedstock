@@ -40,6 +40,7 @@ Current release info
 | [![Conda Recipe](https://img.shields.io/badge/recipe-spectrafit--all-green.svg)](https://anaconda.org/conda-forge/spectrafit-all) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/spectrafit-all.svg)](https://anaconda.org/conda-forge/spectrafit-all) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/spectrafit-all.svg)](https://anaconda.org/conda-forge/spectrafit-all) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/spectrafit-all.svg)](https://anaconda.org/conda-forge/spectrafit-all) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-spectrafit--graph-green.svg)](https://anaconda.org/conda-forge/spectrafit-graph) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/spectrafit-graph.svg)](https://anaconda.org/conda-forge/spectrafit-graph) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/spectrafit-graph.svg)](https://anaconda.org/conda-forge/spectrafit-graph) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/spectrafit-graph.svg)](https://anaconda.org/conda-forge/spectrafit-graph) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-spectrafit--jupyter-green.svg)](https://anaconda.org/conda-forge/spectrafit-jupyter) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/spectrafit-jupyter.svg)](https://anaconda.org/conda-forge/spectrafit-jupyter) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/spectrafit-jupyter.svg)](https://anaconda.org/conda-forge/spectrafit-jupyter) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/spectrafit-jupyter.svg)](https://anaconda.org/conda-forge/spectrafit-jupyter) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-spectrafit--rixs-green.svg)](https://anaconda.org/conda-forge/spectrafit-rixs) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/spectrafit-rixs.svg)](https://anaconda.org/conda-forge/spectrafit-rixs) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/spectrafit-rixs.svg)](https://anaconda.org/conda-forge/spectrafit-rixs) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/spectrafit-rixs.svg)](https://anaconda.org/conda-forge/spectrafit-rixs) |
 
 Installing spectrafit-recipe
 ============================
@@ -51,16 +52,16 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `spectrafit, spectrafit-all, spectrafit-graph, spectrafit-jupyter` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `spectrafit, spectrafit-all, spectrafit-graph, spectrafit-jupyter, spectrafit-rixs` can be installed with `conda`:
 
 ```
-conda install spectrafit spectrafit-all spectrafit-graph spectrafit-jupyter
+conda install spectrafit spectrafit-all spectrafit-graph spectrafit-jupyter spectrafit-rixs
 ```
 
 or with `mamba`:
 
 ```
-mamba install spectrafit spectrafit-all spectrafit-graph spectrafit-jupyter
+mamba install spectrafit spectrafit-all spectrafit-graph spectrafit-jupyter spectrafit-rixs
 ```
 
 It is possible to list all of the versions of `spectrafit` available on your platform with `conda`:
