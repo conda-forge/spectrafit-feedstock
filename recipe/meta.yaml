@@ -10,7 +10,7 @@ source:
   sha256: dbc1716bf69b850dbafbc6175e0363298498ea88f9ad3bbd3cf456d5d134ec4f
 
 build:
-  number: 4
+  number: 5
 
 outputs:
   - name: {{ name|lower }}
@@ -52,6 +52,10 @@ outputs:
         - spectrafit --help
         - spectrafit-file-converter --help
         - spectrafit-data-converter --help
+      host:
+        - python
+        - pip
+        - build
   - name: {{ name|lower }}-jupyter
     build:
       noarch: python
@@ -77,6 +81,10 @@ outputs:
       commands:
         - spectrafit-jupyter --help
         - python -c "from spectrafit.plugins.notebook import SpectraFitNotebook"
+      host:
+        - python
+        - pip
+        - build
   - name: {{ name|lower }}-graph
     build:
       noarch: python
@@ -100,6 +108,10 @@ outputs:
         - spectrafit --help
         - spectrafit-pkl-visualizer --help
         - spectrafit-pkl-converter --help
+      host:
+        - python
+        - pip
+        - build
   - name: {{ name|lower }}-rixs
     build:
       noarch: python
@@ -126,10 +138,10 @@ outputs:
       commands:
         - spectrafit-rixs-visualizer --help
         - spectrafit-rixs-converter --help
-  #     host:
-  #       - python
-  #       - pip
-  #       - build
+      host:
+        - python
+        - pip
+        - build
   - name: {{ name|lower }}-all
     build:
       noarch: python
