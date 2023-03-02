@@ -1,11 +1,11 @@
-About spectrafit-recipe
-=======================
+About spectrafit-recipe-feedstock
+=================================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/spectrafit-feedstock/blob/main/LICENSE.txt)
 
 Home: https://pypi.org/project/spectrafit/
 
 Package license: BSD-3-Clause
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/spectrafit-feedstock/blob/main/LICENSE.txt)
 
 Summary: Fast fitting of 2D-Spectra with established routines
 
