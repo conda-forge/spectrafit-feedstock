@@ -10,7 +10,7 @@ source:
   sha256: 58ff71546277796d515e2b85e4d5c2fd39741c73d1edb924652e38341460365d
 
 build:
-  number: 0
+  number: 1
 
 outputs:
   - name: {{ name|lower }}
@@ -63,7 +63,7 @@ outputs:
       entry_points:
         - spectrafit-jupyter = spectrafit.app.app:jupyter
       host:
-        - python >=3.8, <3.11
+        - python >=3.8, <3.12
         - pip
         - poetry
     requirements:
