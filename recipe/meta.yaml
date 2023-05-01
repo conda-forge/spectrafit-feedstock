@@ -10,7 +10,7 @@ source:
   sha256: 7d5c514f87366164190c904bf4b89ecc80222a2a94a5d2c2a24a2b3240ebca2b
 
 build:
-  number: 0
+  number: 1
 
 outputs:
   - name: {{ name|lower }}
@@ -24,11 +24,11 @@ outputs:
         - spectrafit-data-converter = spectrafit.plugins.data_converter:command_line_runner
     requirements:
       host:
-        - python >=3.8, <3.11
+        - python >=3.8, <3.12
         - pip
         - poetry
       run:
-        - python >=3.8, <3.11
+        - python >=3.8, <3.12
         - pyyaml
         - ascii-art
         - emcee
@@ -93,7 +93,7 @@ outputs:
         - spectrafit-pkl-visualizer = spectrafit.plugins.pkl_visualizer:command_line_runner
         - spectrafit-pkl-converter = spectrafit.plugins.pkl_converter:command_line_runner
       host:
-        - python >=3.8, <3.11
+        - python >=3.8, <3.12
         - pip
         - poetry
     requirements:
@@ -120,7 +120,7 @@ outputs:
         - spectrafit-rixs-visualizer = spectrafit.plugins.rixs_visualizer:command_line_runner
         - spectrafit-rixs-converter = spectrafit.plugins.rixs_converter:command_line_runner
       host:
-        - python >=3.8, <3.11
+        - python >=3.8, <3.12
         - pip
         - poetry
     requirements:
@@ -147,7 +147,7 @@ outputs:
       noarch: python
       skip: true  # [not linux64]
       host:
-        - python >=3.8, <3.11
+        - python >=3.8, <3.12
         - pip
         - poetry
     requirements:
