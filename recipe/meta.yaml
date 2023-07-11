@@ -10,7 +10,7 @@ source:
   sha256: d951f97444a6fbea03a871de836cdadc4e36a937b402ea8361a7e6e838b82833
 
 build:
-  number: 0
+  number: 1
 
 outputs:
   - name: {{ name|lower }}
@@ -37,7 +37,7 @@ outputs:
         - numpy
         - openpyxl
         - pandas
-        - pydantic
+        - pydantic >=2.0.0
         - scikit-learn
         - seaborn
         - tabulate
