@@ -10,7 +10,7 @@ source:
   sha256: 90037b59ec6cfa1f879029be60322a0ee84139f765aed05df06fac93428b0ecc
 
 build:
-  number: 0
+  number: 1
 
 outputs:
   - name: {{ name|lower }}
@@ -62,6 +62,7 @@ outputs:
       skip: true  # [not linux64]
       entry_points:
         - spectrafit-jupyter = spectrafit.app.app:jupyter
+        - spectrafit-pptx-converter = spectrafit.plugins.pptx_converter:command_line_runner
       host:
         - python >=3.8, <3.12
         - pip
@@ -75,11 +76,13 @@ outputs:
         - itables
         - plotly
         - dtale
+        - python-pptx
     test:
       imports:
         - spectrafit
       commands:
         - spectrafit-jupyter --help
+        - spectrafit-pptx-converter --help
         - python -c "from spectrafit.plugins.notebook import SpectraFitNotebook"
       host:
         - python
@@ -167,6 +170,7 @@ outputs:
         - spectrafit-pkl-converter --help
         - spectrafit-rixs-visualizer --help
         - spectrafit-rixs-converter --help
+        - spectrafit-pptx-converter --help
         - spectrafit-jupyter --help
         - python -c "from spectrafit.plugins.notebook import SpectraFitNotebook"
 
