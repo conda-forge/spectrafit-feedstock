@@ -1,5 +1,5 @@
 {% set name = "spectrafit" %}
-{% set version = "0.22.8" %}
+{% set version = "0.22.9" %}
 
 package:
   name: {{ name|lower }}-recipe
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/spectrafit-{{ version }}.tar.gz
-  sha256: 7403d26ad09558e8265e80f62d3434b169969a7e6433b482d5ecbea483a0cc90
+  sha256: e0b0bef28b06abecb11c6bd7c0730310a005baa74f71bd02e6a2e5005a126c68
 
 build:
   number: 0
