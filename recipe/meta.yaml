@@ -1,6 +1,7 @@
 {% set name = "spectrafit" %}
 {% set version = "1.2.0" %}
-
+{% set python_min = "3.8" %}
+{% set python_max = "3.13" %}
 package:
   name: {{ name|lower }}-recipe
   version: {{ version }}
@@ -10,13 +11,13 @@ source:
   sha256: 56047b953c3744cde7b6c58db30988f3ba9fe12f3fee32733050fc0c1025ec86
 
 build:
-  number: 0
+  number: 1
 
 outputs:
   - name: {{ name|lower }}
     script: build_base.sh
     build:
-      noarch: python
+      noarch: python {{ python_min }}
       skip: true  # [py<38]
       entry_points:
         - spectrafit = spectrafit.spectrafit:command_line_runner
@@ -28,7 +29,7 @@ outputs:
         - pip
         - hatch
       run:
-        - python >={{ python_min }},<3.13
+        - python >={{ python_min }},<{{ python_max }}
         - pyyaml
         - ascii-art
         - emcee
@@ -66,11 +67,12 @@ outputs:
         - spectrafit-jupyter = spectrafit.app.app:jupyter
         - spectrafit-pptx-converter = spectrafit.plugins.pptx_converter:command_line_runner
       host:
-        - python >=3.8, <3.13
+        - python {{ python_min }}
         - pip
         - hatch
     requirements:
       run:
+        - python >={{ python_min }},<{{ python_max }}
         - {{ pin_subpackage('spectrafit', max_pin='x.x.x') }}
         - jupyterlab
         - python-kaleido ==0.2.1.post1  # [not linux64]
@@ -100,11 +102,12 @@ outputs:
         - spectrafit-pkl-visualizer = spectrafit.plugins.pkl_visualizer:command_line_runner
         - spectrafit-pkl-converter = spectrafit.plugins.pkl_converter:command_line_runner
       host:
-        - python >=3.8, <3.13
+        - python {{ python_min }}
         - pip
         - hatch
     requirements:
       run:
+        - python >={{ python_min }},<{{ python_max }}
         - {{ pin_subpackage('spectrafit', max_pin='x.x.x') }}
         - networkx
         - pydot
@@ -129,11 +132,12 @@ outputs:
         - spectrafit-rixs-visualizer = spectrafit.plugins.rixs_visualizer:command_line_runner
         - spectrafit-rixs-converter = spectrafit.plugins.rixs_converter:command_line_runner
       host:
-        - python >=3.8, <3.13
+        - python {{ python_min }}
         - pip
         - hatch
     requirements:
       run:
+        - python >={{ python_min }},<{{ python_max }}
         - {{ pin_subpackage('spectrafit', max_pin='x.x.x') }}
         - {{ pin_subpackage('spectrafit-graph', max_pin='x.x.x') }}
         - {{ pin_subpackage('spectrafit-jupyter', max_pin='x.x.x') }}
@@ -158,11 +162,12 @@ outputs:
       noarch: python
       skip: true  # [not linux64]
       host:
-        - python >=3.8, <3.13
+        - python {{ python_min }}
         - pip
         - hatch
     requirements:
       run:
+        - python >={{ python_min }},<{{ python_max }}
         - {{ pin_subpackage('spectrafit', max_pin='x.x.x') }}
         - {{ pin_subpackage('spectrafit-jupyter', max_pin='x.x.x') }}
         - {{ pin_subpackage('spectrafit-graph', max_pin='x.x.x') }}
