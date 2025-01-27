@@ -1,5 +1,5 @@
 {% set name = "spectrafit" %}
-{% set version = "1.1.0" %}
+{% set version = "1.2.0" %}
 
 package:
   name: {{ name|lower }}-recipe
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/spectrafit-{{ version }}.tar.gz
-  sha256: 8e46900e7c9926cbc27e96925338e32bbdd6c51cb46501d0ae2b4765688c028c
+  sha256: 56047b953c3744cde7b6c58db30988f3ba9fe12f3fee32733050fc0c1025ec86
 
 build:
-  number: 2
+  number: 0
 
 outputs:
   - name: {{ name|lower }}
@@ -26,7 +26,7 @@ outputs:
       host:
         - python {{ python_min }}
         - pip
-        - poetry
+        - hatch
       run:
         - python >={{ python_min }},<3.13
         - pyyaml
@@ -68,7 +68,7 @@ outputs:
       host:
         - python >=3.8, <3.13
         - pip
-        - poetry
+        - hatch
     requirements:
       run:
         - {{ pin_subpackage('spectrafit', max_pin='x.x.x') }}
@@ -102,7 +102,7 @@ outputs:
       host:
         - python >=3.8, <3.13
         - pip
-        - poetry
+        - hatch
     requirements:
       run:
         - {{ pin_subpackage('spectrafit', max_pin='x.x.x') }}
@@ -131,7 +131,7 @@ outputs:
       host:
         - python >=3.8, <3.13
         - pip
-        - poetry
+        - hatch
     requirements:
       run:
         - {{ pin_subpackage('spectrafit', max_pin='x.x.x') }}
@@ -160,7 +160,7 @@ outputs:
       host:
         - python >=3.8, <3.13
         - pip
-        - poetry
+        - hatch
     requirements:
       run:
         - {{ pin_subpackage('spectrafit', max_pin='x.x.x') }}
