@@ -17,7 +17,7 @@ outputs:
   - name: {{ name|lower }}
     script: build_base.sh
     build:
-      noarch: python {{ python_min }}
+      noarch: python
       skip: true  # [py<38]
       entry_points:
         - spectrafit = spectrafit.spectrafit:command_line_runner
@@ -28,6 +28,7 @@ outputs:
         - python {{ python_min }}
         - pip
         - hatch
+        - setuptools
       run:
         - python >={{ python_min }},<{{ python_max }}
         - pyyaml
@@ -59,6 +60,7 @@ outputs:
         - python {{ python_min }}
         - pip
         - build
+        - setuptools
   - name: {{ name|lower }}-jupyter
     build:
       noarch: python
@@ -70,6 +72,7 @@ outputs:
         - python {{ python_min }}
         - pip
         - hatch
+        - setuptools
     requirements:
       run:
         - python >={{ python_min }},<{{ python_max }}
@@ -94,6 +97,7 @@ outputs:
         - python {{ python_min }}
         - pip
         - build
+        - setuptools
   - name: {{ name|lower }}-graph
     build:
       noarch: python
@@ -105,6 +109,7 @@ outputs:
         - python {{ python_min }}
         - pip
         - hatch
+        - setuptools
     requirements:
       run:
         - python >={{ python_min }},<{{ python_max }}
@@ -124,6 +129,7 @@ outputs:
         - python {{ python_min }}
         - pip
         - build
+        - setuptools
   - name: {{ name|lower }}-rixs
     build:
       noarch: python
@@ -135,6 +141,7 @@ outputs:
         - python {{ python_min }}
         - pip
         - hatch
+        - setuptools
     requirements:
       run:
         - python >={{ python_min }},<{{ python_max }}
@@ -157,6 +164,7 @@ outputs:
         - python {{ python_min }}
         - pip
         - build
+        - setuptools
   - name: {{ name|lower }}-all
     build:
       noarch: python
@@ -165,6 +173,7 @@ outputs:
         - python {{ python_min }}
         - pip
         - hatch
+        - setuptools
     requirements:
       run:
         - python >={{ python_min }},<{{ python_max }}
