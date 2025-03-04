@@ -50,7 +50,7 @@ outputs:
         - tqdm
     test:
       requires:
-        - python {{ python_min }}
+        - python >={{ python_min }},<{{ python_max }}
       imports:
         - spectrafit
       commands:
@@ -58,7 +58,7 @@ outputs:
         - spectrafit-file-converter --help
         - spectrafit-data-converter --help
       host:
-        - python {{ python_min }}
+        - python >={{ python_min }},<{{ python_max }}
         - pip
         - build
         - setuptools
@@ -70,7 +70,7 @@ outputs:
         - spectrafit-jupyter = spectrafit.app.app:jupyter
         - spectrafit-pptx-converter = spectrafit.plugins.pptx_converter:command_line_runner
       host:
-        - python {{ python_min }}
+        - python >={{ python_min }},<{{ python_max }}
         - pip
         - hatch
         - setuptools
@@ -87,7 +87,7 @@ outputs:
         - python-pptx
     test:
       requires:
-        - python {{ python_min }}
+        - python >={{ python_min }},<{{ python_max }}
       imports:
         - spectrafit
       commands:
@@ -95,7 +95,7 @@ outputs:
         - spectrafit-pptx-converter --help
         - python -c "from spectrafit.plugins.notebook import SpectraFitNotebook"
       host:
-        - python {{ python_min }}
+        - python >={{ python_min }},<{{ python_max }}
         - pip
         - build
         - setuptools
@@ -107,7 +107,7 @@ outputs:
         - spectrafit-pkl-visualizer = spectrafit.plugins.pkl_visualizer:command_line_runner
         - spectrafit-pkl-converter = spectrafit.plugins.pkl_converter:command_line_runner
       host:
-        - python {{ python_min }}
+        - python >={{ python_min }},<{{ python_max }}
         - pip
         - hatch
         - setuptools
@@ -119,7 +119,7 @@ outputs:
         - pydot
     test:
       requires:
-        - python {{ python_min }}
+        - python >={{ python_min }},<{{ python_max }}
       imports:
         - spectrafit
       commands:
@@ -127,7 +127,7 @@ outputs:
         - spectrafit-pkl-visualizer --help
         - spectrafit-pkl-converter --help
       host:
-        - python {{ python_min }}
+        - python >={{ python_min }},<{{ python_max }}
         - pip
         - build
         - setuptools
@@ -139,7 +139,7 @@ outputs:
         - spectrafit-rixs-visualizer = spectrafit.plugins.rixs_visualizer:command_line_runner
         - spectrafit-rixs-converter = spectrafit.plugins.rixs_converter:command_line_runner
       host:
-        - python {{ python_min }}
+        - python >={{ python_min }},<{{ python_max }}
         - pip
         - hatch
         - setuptools
@@ -155,14 +155,14 @@ outputs:
         - dash-bootstrap-templates
     test:
       requires:
-        - python {{ python_min }}
+        - python >={{ python_min }},<{{ python_max }}
       imports:
         - spectrafit
       commands:
         - spectrafit-rixs-visualizer --help
         - spectrafit-rixs-converter --help
       host:
-        - python {{ python_min }}
+        - python >={{ python_min }},<{{ python_max }}
         - pip
         - build
         - setuptools
@@ -171,7 +171,7 @@ outputs:
       noarch: python
       skip: true  # [not linux64]
       host:
-        - python {{ python_min }}
+        - python >={{ python_min }},<{{ python_max }}
         - pip
         - hatch
         - setuptools
@@ -184,7 +184,7 @@ outputs:
         - {{ pin_subpackage('spectrafit-rixs', max_pin='x.x.x') }}
     test:
       requires:
-        - python {{ python_min }}
+        - python >={{ python_min }},<{{ python_max }}
       imports:
         - spectrafit
       commands:
