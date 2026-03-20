@@ -12,14 +12,14 @@ source:
   sha256: 86a4b15e44adcf1a188d102f4d613b35f89599496764dd62b90167c2c32981c6
 
 build:
-  number: 0
+  number: 1
 
 outputs:
   - name: {{ name|lower }}
     script: build_base.sh
     build:
       noarch: python
-      skip: true  # [py<38]
+      skip: true  # [py<39]
       entry_points:
         - spectrafit = spectrafit.spectrafit:command_line_runner
         - spectrafit-file-converter = spectrafit.plugins.file_converter:command_line_runner
