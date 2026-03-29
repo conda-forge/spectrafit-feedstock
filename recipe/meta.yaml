@@ -1,5 +1,5 @@
 {% set name = "spectrafit" %}
-{% set version = "1.5.0" %}
+{% set version = "1.5.1" %}
 {% set python_min = "3.9" %}
 {% set python_max = "3.13" %}
 
@@ -9,7 +9,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/spectrafit-{{ version }}.tar.gz
-  sha256: 86a4b15e44adcf1a188d102f4d613b35f89599496764dd62b90167c2c32981c6
+  sha256: 453ca709ab1ee22e5fc83fea14cb5fb067d0e3bc9f4adc30f824b11a28cb89b5
 
 build:
   number: 0
